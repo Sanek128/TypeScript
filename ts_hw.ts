@@ -285,73 +285,63 @@ console.log('__________________________');
 //   2 - Фракція
 //   3 - Депутат
 
-function menu(): void {
-    // let mainMenu = prompt('Виберіть пункт меню\n 1 - Верховна рада \n 2 - Фракція \n 3 - Депутат');
-    
-    // let opis = 'Виберіть пункт меню\n 1 - Верховна рада \n 2 - Фракція \n 3 - Депутат';
-    // let mainMenu = prompt(opis);
-    
-    let mainMenu = '';
-    
-    console.log('Виберіть пункт меню');
-    console.log('1 - Верховна рада');
-    console.log('2 - Фракція');
-    console.log('3 - Депутат');
+const readline = require('readline');
 
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+function menu(): void {
+
+    rl.question('Виберіть пункт меню \n 1 - Верховна рада \n 2 - Фракція \n 3 - Депутат \n', (answer) => {
+        console.log('Ваш вибір варінт :' + answer);
     
-    switch(mainMenu) {
-        case '1':
-            vrMenu();
-            break;
-        case '2':
-            frakcionsMenu();
-            break;
-        case '3':
-            deputatsMenu();
-            break;
-        default:
-            // alert('Введіть правильний номер меню')
-            console.log('Введіть правильний номер меню')
-            // menu();
-            break;
-    }
+        switch(answer) {
+            case '1':
+                vrMenu();
+                break;
+            case '2':
+                frakcionsMenu();
+                break;
+            case '3':
+                deputatsMenu();
+                break;
+            default:
+                console.log('-----------------------------')
+                console.log('Введіть правильний номер меню')
+                console.log('-----------------------------')
+                menu();
+                break;
+        }
+    // rl.close();
+    });
 }
 menu();
 
-// відповідно при вводі з клави певної цифри ми попадаєио в інше меню
-//   якщо ми нажали 1 то нам промалюється в консолі таке меню
-//   1-додати фракцію
-//   2-вивести всі фракції
-//   3-вивести найбільшого хабарника
-// меню робимо на свій смак
-
 function vrMenu(): void {
-
-    console.log('Меню верховної ради');
-    console.log('1 - Додати фракцію');
-    console.log('2 - Вивести всі фракції');
-    console.log('3 - Вивести найбільшого хабарника');
-
-    let subMenu: String = '';
     
-    switch(subMenu) {
-        case '1':
-            vr.addFrakciya;
-            break;
-        case '2':
-            vr.showAllFrakcions();
-            break;
-        case '3':
-            vr.showMaxHabarnikInRada();
-            break;
-        default:
-            // alert('Введіть правильний номер меню')
-            console.log('Введіть правильний номер меню')
-            // vrMenu();
-            break;
-    }
+    rl.question('Меню верховної ради \n 1 - Додати фракцію \n 2 - Вивести всі фракції \n 3 - Вивести найбільшого хабарника \n', (answer) => {
+        console.log('Ваш вибір варінт :' + answer);
+            switch(answer) {
+                case '1':
+                    vr.addFrakciya;
+                    break;
+                case '2':
+                    vr.showAllFrakcions();
+                    break;
+                case '3':
+                    vr.showMaxHabarnikInRada();
+                    break;
+                default:
+                    console.log('Введіть правильний номер меню')
+                    vrMenu();
+                    break;
+            }
+            rl.close();
+    });
 }
-vrMenu();
+// vrMenu();
 
 function frakcionsMenu(): void {
 
