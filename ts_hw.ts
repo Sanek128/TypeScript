@@ -351,6 +351,7 @@ function vrMenu(): void {
             break;
     }
 }
+vrMenu();
 
 function frakcionsMenu(): void {
 

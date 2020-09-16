@@ -259,9 +259,9 @@ console.log('__________________________');
 //   2 - Фракція
 //   3 - Депутат
 function menu() {
-    // let mainMenu:String = prompt('Виберіть пункт меню\n 1 - Верховна рада \n 2 - Фракція \n 3 - Депутат');
-    // let opis:String = 'Виберіть пункт меню\n 1 - Верховна рада \n 2 - Фракція \n 3 - Депутат';
-    // let mainMenu:String = prompt(opis);
+    // let mainMenu = prompt('Виберіть пункт меню\n 1 - Верховна рада \n 2 - Фракція \n 3 - Депутат');
+    // let opis = 'Виберіть пункт меню\n 1 - Верховна рада \n 2 - Фракція \n 3 - Депутат';
+    // let mainMenu = prompt(opis);
     var mainMenu = '';
     console.log('Виберіть пункт меню');
     console.log('1 - Верховна рада');
@@ -310,9 +310,11 @@ function vrMenu() {
         default:
             // alert('Введіть правильний номер меню')
             console.log('Введіть правильний номер меню');
+            // vrMenu();
             break;
     }
 }
+vrMenu();
 function frakcionsMenu() {
 }
 function deputatsMenu() {
